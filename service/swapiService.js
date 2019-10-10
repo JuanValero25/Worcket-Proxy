@@ -20,16 +20,15 @@ const api = axios.create({
 module.exports.getCharacterById = async (id) => {
 
     const response = await api.get(swapiUrl + `/${id}/`)
-        .catch(err=>{
-            if(err.response){
+        .catch(err => {
+            if (err.response) {
                 throw new createError(err.response.status, "Character dont exist ")
-            }
-            else{
+            } else {
                 throw new createError(500, "timeOut or service not avaliable ")
             }
 
         });
-        return response.data
+    return response.data
 
 };
 
